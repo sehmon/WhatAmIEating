@@ -13,3 +13,6 @@ https://www.hackerleague.org/hackathons/hackru-spring-2014
 
 To see what the final product is going to look like, click here:
 https://docs.google.com/presentation/d/15n3xmEzVVtisskdGY3fDSpHboWWJJm5OXooqLKSqNh0/edit?usp=sharing
+
+FoodEssentials:
+http://www.foodessentials.com/
