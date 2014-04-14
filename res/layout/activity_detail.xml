@@ -1,0 +1,72 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="Sodium"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#808080"
+        android:textSize="40dp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/imageView1"
+        android:layout_marginTop="49dp"
+        android:text="What It Does"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#669900" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:text=" The body uses sodium to control blood pressure and blood volume. Sodium is also needed for your muscles and nerves to work properly."
+        android:typeface="monospace" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:src="@drawable/salt" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView4"
+        android:gravity="center_horizontal"
+        android:text="Too much Sodium can cause an increased risk of heart disease and stroke. Heart Disease is the number one preventable disease killer"
+        android:textSize="12sp"
+        android:typeface="monospace" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="39dp"
+        android:text="Increased Risk of:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#CC0000" />
+
+</RelativeLayout>
