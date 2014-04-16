@@ -9,22 +9,20 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="54dp"
-        android:text="Food Score"
+        android:layout_marginTop="63dp"
+        android:text="@string/food_score"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/scoreNumberTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/scoreTextView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="110dp"
+        android:layout_centerVertical="true"
         android:gravity="center"
-        android:text="-75"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#FF4444"
-        android:textSize="125dp"
+        android:textSize="125sp"
         android:textStyle="italic" />
 
 </RelativeLayout>

@@ -2,7 +2,9 @@ package com.sehmon.whatamieating;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,8 +25,7 @@ public class ScoreFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_score,
 				container, false);
-		tv1 = (TextView)rootView.findViewById(R.id.scoreTextView);
-		
+		tv1 = (TextView)rootView.findViewById(R.id.scoreNumberTextView);
 		
 		return rootView;
 	}
@@ -38,11 +39,19 @@ public class ScoreFragment extends Fragment {
 	@Override
 	public void onResume(){
 		super.onResume();
-		if(provider.getFood() == null){
-			tv1.setText("0");
+		int d = provider.getFood().getScore();
+		tv1.setText(String.valueOf(d));
+		Log.i("Test", ("" + d));
+		
+		if(d > 0){
+			tv1.setTextColor(Color.GREEN);
+		} else if(d < 0){
+			tv1.setTextColor(Color.RED);
 		} else {
-			tv1.setText(provider.getFood().getScore());
-		}
+			tv1.setTextColor(Color.GRAY);
+		} 
+		
+		Log.i("Test", tv1.getText().toString());
 	}
 	
 	public ScoreFragment(){

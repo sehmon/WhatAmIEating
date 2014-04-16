@@ -21,11 +21,13 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -36,6 +38,7 @@ public class SingleFoodActivity extends Activity implements
 	Food f;
 	ArrayList<Nutrient> nutrients;
 	ArrayList<Additive> additives;
+	ProgressDialog ringProgressDialog;
 	
 	//This page adapter is what allows for multiple fragments in one activity
 	//If your project is too memory intensive, then you should use a PagerAdapter
@@ -87,8 +90,7 @@ public class SingleFoodActivity extends Activity implements
 		//When the pager opens, it starts in the middle
 		mViewPager.setCurrentItem(1);
 		
-		//TODO Change this to the actual food title
-		actionBar.setTitle("Frito-Lays Doritos");
+		actionBar.setTitle("Yup");
 		
 	}
 
@@ -218,13 +220,18 @@ public class SingleFoodActivity extends Activity implements
 
 					return responseString;
 				} catch (ClientProtocolException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				return responseString;
+			}
+			
+			@Override
+			protected void onPreExecute(){ 
+			        ringProgressDialog = new ProgressDialog(SingleFoodActivity.this);
+			        ringProgressDialog.setMessage("Loading...");
+			        ringProgressDialog.show();    
 			}
 			
 			
@@ -249,10 +256,12 @@ public class SingleFoodActivity extends Activity implements
 					}
 					
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					Log.w("Test", "Food Not Found");
+					
 				}
+				ringProgressDialog.dismiss();
 			}
+			
 		};
 		
 		//Because all of that was an anonymous class, the method really is just this part right here
@@ -265,7 +274,6 @@ public class SingleFoodActivity extends Activity implements
 	//These are the methods you need, because SingleFoodActivity extends the Nutrient Provier Class
 	@Override
 	public List<Nutrient> getNutrients() {
-		// TODO Auto-generated method stub
 		if (nutrients == null){
 			return new ArrayList<Nutrient>();
 		}

@@ -28,13 +28,13 @@ public class NutrientFragment extends Fragment {
 		return new NutrientFragment();
 	}
 	
-	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState){
 		View rootView = inflater.inflate(R.layout.fragment_nutrient_list, null);
 		adapter = new NutrientListAdapter(getActivity(), R.id.list_item, (ArrayList<Nutrient>) provider.getNutrients());
 		lv1 = (ListView)rootView.findViewById(R.id.nutrientListView);
+		lv1.setAdapter(adapter);
 		lv1.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -54,18 +54,7 @@ public class NutrientFragment extends Fragment {
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
 		provider = (NutrientProvider)activity;
-		
-		
-	}
-	
-	@Override
-	public void onResume(){
-		super.onResume();	
-		adapter = new NutrientListAdapter(getActivity(), R.id.list_item,  (ArrayList<Nutrient>) provider.getNutrients());
-		lv1.setAdapter(adapter);
-		
-		
-		
+			
 	}
 	
 }

@@ -6,13 +6,12 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
 
 public class AdditiveFragment extends Fragment {
 
@@ -34,6 +33,7 @@ public class AdditiveFragment extends Fragment {
 		View rootView = inflater.inflate(R.layout.fragment_additive_list, null);
 		adapter = new AdditiveListAdapter(getActivity(), R.id.list_item, (ArrayList<Additive>) provider.getAdditives());
 		lv1 = (ListView)rootView.findViewById(R.id.listView1);
+		lv1.setAdapter(adapter);
 		lv1.setOnItemClickListener(new OnItemClickListener() {
 
 			//When an additive is clicked you want to start a new activity showing what the additives are
@@ -56,20 +56,8 @@ public class AdditiveFragment extends Fragment {
 	@Override
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
-		provider = (NutrientProvider)activity;
-		
+		provider = (NutrientProvider)activity;		
 		
 	}
-	
-	//Whenever the app resumes, you want to try and create that list of nutrients
-	@Override
-	public void onResume(){
-		super.onResume();
-		Log.e("test", ""+provider.getAdditives());	
-		adapter = new AdditiveListAdapter(getActivity(), R.id.list_item,  (ArrayList<Additive>) provider.getAdditives());
-		lv1.setAdapter(adapter);
-		
 
-		
-	}
 }
