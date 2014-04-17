@@ -1214,25 +1214,29 @@ containing a value of this type.
         public static final int abc_search_dropdown_item_icons_2line=0x7f030015;
         public static final int abc_search_view=0x7f030016;
         public static final int abc_simple_decor=0x7f030017;
-        public static final int activity_detail=0x7f030018;
-        public static final int activity_food=0x7f030019;
-        public static final int activity_scan=0x7f03001a;
-        public static final int activity_single_food=0x7f03001b;
-        public static final int fragment_additive=0x7f03001c;
-        public static final int fragment_additive_list=0x7f03001d;
-        public static final int fragment_detail=0x7f03001e;
-        public static final int fragment_food=0x7f03001f;
-        public static final int fragment_nutrient_list=0x7f030020;
-        public static final int fragment_score=0x7f030021;
-        public static final int fragment_single_food=0x7f030022;
-        public static final int item_list=0x7f030023;
-        public static final int support_simple_spinner_dropdown_item=0x7f030024;
+        public static final int activity_data_grabber=0x7f030018;
+        public static final int activity_detail=0x7f030019;
+        public static final int activity_food=0x7f03001a;
+        public static final int activity_scan=0x7f03001b;
+        public static final int activity_single_food=0x7f03001c;
+        public static final int fragment_additive=0x7f03001d;
+        public static final int fragment_additive_list=0x7f03001e;
+        public static final int fragment_data_grabber=0x7f03001f;
+        public static final int fragment_detail=0x7f030020;
+        public static final int fragment_food=0x7f030021;
+        public static final int fragment_nutrient_list=0x7f030022;
+        public static final int fragment_score=0x7f030023;
+        public static final int fragment_single_food=0x7f030024;
+        public static final int item_list=0x7f030025;
+        public static final int support_simple_spinner_dropdown_item=0x7f030026;
     }
     public static final class menu {
-        public static final int detail=0x7f0c0000;
-        public static final int food=0x7f0c0001;
-        public static final int scan=0x7f0c0002;
-        public static final int single_food=0x7f0c0003;
+        public static final int data_grabber=0x7f0c0000;
+        public static final int data_graber=0x7f0c0001;
+        public static final int detail=0x7f0c0002;
+        public static final int food=0x7f0c0003;
+        public static final int scan=0x7f0c0004;
+        public static final int single_food=0x7f0c0005;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1279,6 +1283,8 @@ containing a value of this type.
         public static final int app_name=0x7f0a000d;
         public static final int food_score=0x7f0a0016;
         public static final int hello_world=0x7f0a000e;
+        public static final int title_activity_data_grabber=0x7f0a0018;
+        public static final int title_activity_data_graber=0x7f0a0017;
         public static final int title_activity_detail=0x7f0a0015;
         public static final int title_activity_food=0x7f0a0014;
         public static final int title_activity_single_food=0x7f0a0010;

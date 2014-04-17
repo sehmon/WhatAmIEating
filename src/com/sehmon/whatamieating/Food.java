@@ -1,10 +1,14 @@
 package com.sehmon.whatamieating;
 
+import java.io.Serializable;
+
 import org.json.JSONObject;
 
 
-public class Food {
+public class Food implements Serializable {
 
+
+	private static final long serialVersionUID = 278902244333249739L;
 	private String upc;
 	private String brand;
 
@@ -41,4 +45,5 @@ public class Food {
 		
 		return f;
 	}
+
 }

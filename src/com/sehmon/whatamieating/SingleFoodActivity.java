@@ -1,33 +1,17 @@
 package com.sehmon.whatamieating;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -38,7 +22,6 @@ public class SingleFoodActivity extends Activity implements
 	Food f;
 	ArrayList<Nutrient> nutrients;
 	ArrayList<Additive> additives;
-	ProgressDialog ringProgressDialog;
 	
 	//This page adapter is what allows for multiple fragments in one activity
 	//If your project is too memory intensive, then you should use a PagerAdapter
@@ -51,7 +34,9 @@ public class SingleFoodActivity extends Activity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_single_food);
-		getFoodInfo();
+		f = (Food) getIntent().getSerializableExtra("food");
+		nutrients = (ArrayList<Nutrient>) getIntent().getSerializableExtra("nutrients");
+		additives = (ArrayList<Additive>) getIntent().getSerializableExtra("additives");
 		
 		// Set up the action bar.
 		final ActionBar actionBar = getActionBar();
@@ -90,7 +75,7 @@ public class SingleFoodActivity extends Activity implements
 		//When the pager opens, it starts in the middle
 		mViewPager.setCurrentItem(1);
 		
-		actionBar.setTitle("Yup");
+		actionBar.setTitle(f.getBrand());
 		
 	}
 
@@ -185,90 +170,7 @@ public class SingleFoodActivity extends Activity implements
 	}
 
 	
-	//This is the method that gives you the food data using Async
-	//Still don't understand it 100%
-	public void getFoodInfo(){
-		AsyncTask<String, String, String> async = new AsyncTask<String, String, String>() {
 
-			@Override
-			protected String doInBackground(String... arg0) {
-				//This grabs the Intent from the Scan and gets the upc code of the food
-				Intent i = getIntent();
-				String s = i.getStringExtra("upcCode");
-				HttpClient client = new DefaultHttpClient();
-				
-				//This is the url that you create to make the Get Request
-				HttpGet getReq = new HttpGet("http://api.foodessentials.com/productscore?u=" 
-				+ s + "&sid=b318d6d9-3858-432e-81bf-fe037cc313ae&f=json&api_key=m5pkqfejmtvxsw3en5rnjagu");
-				
-				String responseString = "";
-				
-				//I still don't know what this does exactly:
-
-				try {
-					//Here you set the response of the client to resp
-					//Then you use a BufferedReader to parse the response
-					//After, you use the while loop to add each line of the response to a new string
-					//Finally you return the response to whatever asked for it
-					HttpResponse resp = client.execute(getReq);
-					BufferedReader reader = new BufferedReader(new InputStreamReader(resp.getEntity().getContent()));
-					// read the response
-					String temp = "";
-					while ((temp = reader.readLine()) != null) {
-						responseString += temp;
-					}
-
-					return responseString;
-				} catch (ClientProtocolException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-				return responseString;
-			}
-			
-			@Override
-			protected void onPreExecute(){ 
-			        ringProgressDialog = new ProgressDialog(SingleFoodActivity.this);
-			        ringProgressDialog.setMessage("Loading...");
-			        ringProgressDialog.show();    
-			}
-			
-			
-			//This is a default method of the Async Class that you have to override
-			@Override
-			protected void onPostExecute(String res) {
-				
-				//Because it is Async, you have to do all your variable setting here
-				try {
-					//Use the entire response and make a JSON Object out of it
-					JSONObject jsonObject = new JSONObject(res);
-					f = Food.fromJson(jsonObject.getJSONObject("product"));	
-					JSONArray jsonAdditives = jsonObject.getJSONObject("product").getJSONArray("additives");
-					JSONArray jsonNutrients = jsonObject.getJSONObject("product").getJSONArray("nutrients");
-					nutrients = new ArrayList<Nutrient>();
-					additives = new ArrayList<Additive>();
-					for(int i = 0; i < jsonNutrients.length(); i++){
-						nutrients.add(Nutrient.fromJson(jsonNutrients.getJSONObject(i)));
-					}
-					for(int i = 0; i < jsonAdditives.length(); i++){
-						additives.add(Additive.fromJson(jsonAdditives.getJSONObject(i)));
-					}
-					
-				} catch (JSONException e) {
-					Log.w("Test", "Food Not Found");
-					
-				}
-				ringProgressDialog.dismiss();
-			}
-			
-		};
-		
-		//Because all of that was an anonymous class, the method really is just this part right here
-		//I think the execute method doesn't need parameters for this one, so we just set the String to blah
-		//TODO Find a way to add parameters into the request right here, beacause then you can just call the method with the intent data (upc, food name)
-		async.execute("blah");
-	}
 
 	
 	//These are the methods you need, because SingleFoodActivity extends the Nutrient Provier Class

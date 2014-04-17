@@ -31,8 +31,12 @@
         </activity>
         <activity
             android:name="com.sehmon.whatamieating.DetailActivity"
-            android:label="@string/title_activity_detail" 
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen">
+            android:label="@string/title_activity_detail"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.sehmon.whatamieating.DataGrabber"
+            android:label="@string/title_activity_data_grabber" >
         </activity>
     </application>
 

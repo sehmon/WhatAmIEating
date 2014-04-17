@@ -1,11 +1,14 @@
 package com.sehmon.whatamieating;
 
+import java.io.Serializable;
+
 import org.json.JSONObject;
 
 import android.util.Log;
 
-public class Additive {
+public class Additive implements Serializable {
 	
+	private static final long serialVersionUID = 1524835687757604994L;
 	private String type;
 	private String additives;
 	

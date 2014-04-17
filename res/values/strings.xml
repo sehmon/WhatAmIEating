@@ -11,6 +11,7 @@
     <string name="title_activity_food">FoodActivity</string>
     <string name="title_activity_detail">DetailActivity</string>
     <string name="food_score">Food Score</string>
-    
+    <string name="title_activity_data_graber">DataGraber</string>
+    <string name="title_activity_data_grabber">DataGrabber</string>
 
 </resources>

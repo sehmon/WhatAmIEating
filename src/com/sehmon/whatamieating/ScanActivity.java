@@ -49,7 +49,7 @@ public class ScanActivity extends Activity {
 			Log.i("Scanner", "Barcode: " + scanContent);
 			Log.i("Scanner", "Scan Format: " + scanFormat);
 			
-			Intent i = new Intent(this, SingleFoodActivity.class);
+			Intent i = new Intent(this, DataGrabber.class);
 			i.putExtra("upcCode", scanContent);
 			startActivity(i);
 			

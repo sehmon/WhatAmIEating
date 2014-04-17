@@ -1,10 +1,14 @@
 package com.sehmon.whatamieating;
 
+import java.io.Serializable;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Nutrient {	
+public class Nutrient  implements Serializable{	
 	
+
+	private static final long serialVersionUID = 422888460465038100L;
 	private String name;
 	private double value;
 	

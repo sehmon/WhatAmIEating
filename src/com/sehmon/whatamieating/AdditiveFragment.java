@@ -26,7 +26,7 @@ public class AdditiveFragment extends Fragment {
 	
 	//When the fragment is created you want to assign the listView variables, but not assign them yet
 	//You do this because the data is still being grabbed from the API by the time this happens
-	//TODO Create a splash screen to handle waiting for the data
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState){
