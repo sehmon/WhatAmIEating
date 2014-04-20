@@ -17,5 +17,5 @@ https://docs.google.com/presentation/d/15n3xmEzVVtisskdGY3fDSpHboWWJJm5OXooqLKSq
 FoodEssentials:
 http://www.foodessentials.com/
 
-*HackRU Top 10 project
+*HackRU Top 10 project <br>
 *HackRU Best Use of A Mashery API
