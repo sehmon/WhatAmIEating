@@ -18,4 +18,6 @@ FoodEssentials:
 http://www.foodessentials.com/
 
 *HackRU Top 10 project <br>
-*HackRU Best Use of A Mashery API
+*HackRU Best Use of A Mashery API <br>
+
+Big thanks to <a href="https://github.com/maltzj">Jonathan Maltz</a> for helping with this project. 
